@@ -1,0 +1,22 @@
+flowchart TB
+    U[Authenticated user] --> FE[React dashboard\nDashboardLayout navigation]
+    FE --> TRPC[tRPC protected procedures]
+    TRPC --> AUTH[Manus OAuth session\nprotectedProcedure]
+
+    subgraph SERVICES[Server-side services]
+      APP[Application service\nCRUD + status validation]
+      RESUME[Resume service\nupload + associations]
+      MATCH[AI skill match service\ndeterministic baseline + structured JSON]
+      ANALYTICS[Analytics service\nuser-scoped aggregates]
+    end
+
+    TRPC --> APP
+    TRPC --> RESUME
+    TRPC --> MATCH
+    TRPC --> ANALYTICS
+    APP --> DB[(MySQL/TiDB database)]
+    RESUME --> DB
+    RESUME --> S3[(S3 resume storage)]
+    MATCH --> DB
+    MATCH <--> LLM[Built-in server-side LLM]
+    ANALYTICS --> DB

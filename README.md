@@ -1,59 +1,224 @@
-# Career Compass — Job Application Tracker
+# 🚀 Career Compass — AI-Powered Job Application Tracker
 
-Career Compass is a job-search command center designed as both a recruiter-facing portfolio demo and a separately deployable full-stack application.
+**Career Compass** is a modern full-stack web application that helps job seekers organize, track, and improve their job search journey. Instead of managing applications through spreadsheets and scattered notes, Career Compass provides a centralized platform to monitor every stage of the hiring process, manage resumes, analyze skill gaps, and visualize progress through insightful analytics.
 
-## Two Ways to Explore the Project
+This project also serves as a **portfolio showcase**, allowing recruiters to explore the application without creating an account while offering a fully featured production version for authenticated users.
 
-| Experience | Best for | Authentication and data |
-|---|---|---|
-| **GitHub Pages recruiter demo** | Recruiters, hiring managers, and portfolio review | No login. Interactive records remain in the visitor’s browser only. |
-| **Authenticated production application** | Real users managing a private job search | Manus OAuth, user-scoped database records, S3 resumes, and server-side AI explanations. |
+---
 
-The public demo source lives in [`recruiter-demo/`](recruiter-demo/). It includes an application workflow lab, local browser persistence, local resume metadata, deterministic skill-gap comparison, analytics, and an architecture explanation without requiring any sign-in.
+## 🌟 Live Demo
 
-## Public Recruiter Demo
+Choose the experience that best fits your needs.
 
-When GitHub Pages is enabled, visit:
+| Version | Best For | Description |
+|---------|----------|-------------|
+| 🌐 **Recruiter Demo (GitHub Pages)** | Recruiters & Hiring Managers | Explore the application instantly without signing in. All data is stored locally in your browser. |
+| 🔐 **Production Application** | Real Users | Secure authentication, cloud storage, analytics, and AI-powered features. |
 
-```text
+### 🔗 Recruiter Demo
+
+**Live Demo:**  
 https://prakash563.github.io/job_application_tracker/
-```
 
-The public demo intentionally does **not** collect user data or upload resume files. It is a browser-only walkthrough, not a replacement for the production application.
+> **Note:**  
+> The GitHub Pages demo is intentionally browser-only. It does not collect personal information, upload resumes, or store any data remotely.
 
-## Full-Stack Product Capabilities
+---
 
-| Capability | Production implementation |
-|---|---|
-| Protected workspace | Manus OAuth and protected tRPC procedures scope every record to the signed-in user. |
-| Application tracking | Exact workflow: **Saved**, **Applied**, **Interview**, **Offer**, **Rejected**, and **Withdrawn**. |
-| Resume management | Resume file bytes are stored in S3; metadata and associations live in the relational database. |
-| Skill matching | Deterministic skill overlap and gap calculation with an optional server-side AI explanation. |
-| Analytics | Applications by month, status distribution, response rate, and interview conversion rate. |
+# ✨ Features
 
-## Architecture and Documentation
+## 📋 Job Application Tracking
 
-The repository includes the following supporting material:
+Manage every job application from start to finish.
 
-- [`docs/PROJECT_WORKFLOW.md`](docs/PROJECT_WORKFLOW.md) for the end-to-end product workflow.
-- [`docs/IMPLEMENTATION_NOTES.md`](docs/IMPLEMENTATION_NOTES.md) for technical decisions and limitations.
-- [`docs/RECRUITER_DEMO.md`](docs/RECRUITER_DEMO.md) for public-demo boundaries and testing instructions.
-- [`docs/architecture.png`](docs/architecture.png) for the full-stack architecture diagram.
+- Save interesting job opportunities
+- Track submitted applications
+- Monitor interview progress
+- Manage job offers
+- Record rejected applications
+- Withdraw applications when needed
 
-## Commands
+Supported workflow:
+
+- Saved
+- Applied
+- Interview
+- Offer
+- Rejected
+- Withdrawn
+
+---
+
+## 📄 Resume Management
+
+The production version provides secure resume management.
+
+- Upload multiple resumes
+- Store resume files securely in AWS S3
+- Associate resumes with applications
+- Maintain resume metadata in the database
+
+---
+
+## 🎯 AI Skill Gap Analysis
+
+Compare your resume against job descriptions.
+
+Features include:
+
+- Skill overlap detection
+- Missing skill identification
+- Match percentage calculation
+- Optional AI-generated explanations
+
+---
+
+## 📊 Analytics Dashboard
+
+Visualize your job search performance through interactive analytics.
+
+- Applications submitted per month
+- Status distribution
+- Response rate
+- Interview conversion rate
+- Overall application progress
+
+---
+
+## 🔒 Authentication & Security
+
+The production application includes:
+
+- Manus OAuth authentication
+- Protected tRPC procedures
+- User-specific workspaces
+- Secure cloud storage
+- Private database records
+
+---
+
+# 🖥️ Recruiter Demo vs Production
+
+| Feature | Recruiter Demo | Production |
+|---------|----------------|------------|
+| Login Required | ❌ No | ✅ Yes |
+| Local Storage | ✅ Browser Only | ❌ |
+| Database | ❌ | ✅ |
+| Resume Upload | ❌ | ✅ AWS S3 |
+| Authentication | ❌ | ✅ Auth |
+| AI Skill Analysis | Basic | Advanced |
+| Analytics | Browser Based | Server Powered |
+| User Data Persistence | Local Browser | Cloud Database |
+
+---
+
+# 🏗️ Project Documentation
+
+The repository also contains detailed documentation to better understand the architecture and implementation.
+
+| Document | Description |
+|----------|-------------|
+| `docs/PROJECT_WORKFLOW.md` | Complete application workflow |
+| `docs/IMPLEMENTATION_NOTES.md` | Technical decisions and implementation details |
+| `docs/RECRUITER_DEMO.md` | GitHub Pages demo guide |
+| `docs/architecture.png` | Full system architecture diagram |
+
+---
+
+# ⚙️ Getting Started
+
+Clone the repository:
 
 ```bash
-# Authenticated, full-stack application
+git clone https://github.com/Prakash563/job_application_tracker.git
+
+cd job_application_tracker
+```
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+---
+
+## ▶️ Run the Production Application
+
+```bash
 pnpm dev
 pnpm test
 pnpm check
+```
 
-# No-login GitHub Pages recruiter demo
+---
+
+## 🌐 Run the GitHub Pages Demo
+
+```bash
 pnpm dev:pages
 pnpm build:pages
 pnpm preview:pages
 ```
 
-## Important Boundaries
+---
 
-GitHub Pages is static hosting, so the public demo cannot run the production server, real authentication, database, S3 uploads, or server-side LLM calls. Those remain part of the separately deployable full-stack path. The public demo is deliberately transparent about this distinction.
+# 🛠️ Tech Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+
+### Backend
+
+- Node.js
+- tRPC
+- Manus OAuth
+
+### Database & Storage
+
+- Relational Database
+- AWS S3
+
+### Additional Technologies
+
+- AI-assisted Skill Gap Analysis
+- Analytics Dashboard
+- Browser Local Storage
+- Cloud Persistence
+
+---
+
+# 🎯 Why Career Compass?
+
+Searching for jobs can quickly become overwhelming when applications, resumes, interview schedules, and notes are scattered across different platforms.
+
+Career Compass simplifies the entire process by bringing everything into one intuitive dashboard, enabling users to:
+
+- Stay organized
+- Track application progress
+- Manage resumes efficiently
+- Analyze resume-job compatibility
+- Measure job search success through analytics
+
+---
+
+# 👨‍💻 About This Project
+
+Career Compass was developed as a portfolio project to demonstrate modern full-stack development skills, including authentication, cloud storage integration, analytics, AI-assisted functionality, and responsive user experience—all while solving a real-world problem faced by students and professionals during their job search.
+
+---
+
+## ⭐ Support the Project
+
+If you found this project useful or interesting, consider giving it a **⭐ Star** on GitHub.
+
+Your support helps increase the visibility of the project and motivates future improvements.
+
+---
+
+**Made with ❤️ by Prakash Dora**
+
